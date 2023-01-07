@@ -22,7 +22,7 @@
     max-height: 70%;
     left: 14%;
     top: 20%;
-    background-color: #161923f2;
+    background-color: #00c989e3;
     border-radius: 5px;
     box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
     padding: 30px;
@@ -33,6 +33,7 @@
 
     -ms-overflow-style: none;
     scrollbar-width: none;
+    border-radius: 0px 50px 0px 0px;
 }
 
 .characters-list::-webkit-scrollbar {
@@ -79,7 +80,7 @@
 }
 
 .character:hover {
-    background-color: #a90d2ca6;
+    background-color: #000000a6;
     box-shadow: rgb(37 17 17 / 25%) 0px 30px 60px -12px inset, rgb(154 54 54 / 30%) 0px 18px 36px -18
 }
 
@@ -101,7 +102,7 @@
 }
 
 .char-selected {
-    background-color: #a90d2ca6;
+    background-color: #000000a6;
     box-shadow: rgb(37 17 20 / 25%) 0px 30px 60px -12px inset, rgb(154 54 54 / 30%) 0px 18px 36px -18;
     transition: 250ms;
 }
@@ -131,7 +132,7 @@
 }
 
 #play {
-    background-color: rgb(47 134 67);
+    background-color: black;
     border-radius: .3vh;
     transition: all 0.2s ease;
 }
@@ -157,11 +158,12 @@
     right: 14%;
     top: 20%;
     padding: 30px;
-    background-color: #161923f2;
+    background-color: #c90700e3;
     border-radius: 5px;
     box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
     overflow: visible !important;
     transition: 400ms;
+    border-radius: 50px 0px 0px 0px;
 }
 
 .char-info-header {

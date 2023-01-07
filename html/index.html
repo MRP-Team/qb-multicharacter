@@ -194,7 +194,7 @@
                                 <v-date-picker
                                     v-model="registerData.date"
                                     min="1900-01-01"
-                                    max="2100-12-31"
+                                    max="2005-12-31"
                                 >
                                     <v-spacer></v-spacer>
                                     <v-btn
@@ -334,7 +334,7 @@
                             this.registerData.lastname = undefined
                             this.registerData.nationality = undefined
                             this.registerData.gender = undefined
-                            this.registerData.date = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)
+                            this.registerData.date = '2005-01-01'
 
                             this.show.characters = false
                             this.show.register = true
@@ -346,8 +346,9 @@
                 create_character: function() {
                     const registerData = this.registerData
                     var profanityTest = (!regTest.test(registerData.firstname) && !regTest.test(registerData.nationality) && !regTest.test(registerData.lastname))
+                    var nameLength = registerData.firstname.length <= 15 && registerData.lastname.length <= 15 && registerData.firstname.length > 5 && registerData.lastname.length > 5
 
-                    if (profanityTest && registerData.firstname !== undefined && registerData.firstname !== "" && registerData.lastname !== undefined && registerData.lastname !== "" && registerData.gender !== undefined && registerData.nationality !== undefined && registerData.nationality !== "" && registerData.date !== undefined) {
+                    if (nameLength && profanityTest && registerData.firstname !== undefined && registerData.firstname !== "" && registerData.lastname !== undefined && registerData.lastname !== "" && registerData.gender !== undefined && registerData.nationality !== undefined && registerData.nationality !== "" && registerData.date !== undefined) {
                         this.show.register = false
 
                         axios.post('https://qb-multicharacter/createNewCharacter', {
@@ -365,6 +366,16 @@
                                 icon: 'error',
                                 title: this.translate('ran_into_issue'),
                                 text: this.translate('profanity'),
+                                timer: 5000,
+                                timerProgressBar: true,
+                                showConfirmButton: false
+                            })
+                        }
+                        else if (!nameLength) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: this.translate('ran_into_issue'),
+                                text: "names should be between 5 and 15 characters",
                                 timer: 5000,
                                 timerProgressBar: true,
                                 showConfirmButton: false
